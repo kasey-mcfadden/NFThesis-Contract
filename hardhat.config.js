@@ -3,7 +3,8 @@
 */
 require('dotenv').config();
 require("@nomiclabs/hardhat-ethers");
-const { API_URL, PRIVATE_KEY } = process.env;
+require("@nomiclabs/hardhat-etherscan");
+const { API_URL, PRIVATE_KEY, ETHERSCAN_API_KEY } = process.env;
 module.exports = {
    solidity: "0.7.3",
    defaultNetwork: "ropsten",
@@ -12,6 +13,11 @@ module.exports = {
       ropsten: {
          url: API_URL,
          accounts: [`0x${PRIVATE_KEY}`]
-      }
+      },
+   },
+   etherscan: {
+      // Your API key for Etherscan
+      // Obtain one at https://etherscan.io/
+      apiKey: "BZMD9C3KK368FE5J52TRAERVRW4FFRN11V"
    },
 }
